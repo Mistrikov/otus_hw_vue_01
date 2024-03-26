@@ -4,6 +4,7 @@ import { RouterLink } from 'vue-router'
 defineProps({
   game: {
     actions: Array,
+    playername: String,
     required: true
   }
 })
@@ -17,6 +18,7 @@ defineProps({
       <p class="lead mb-4">Считай, думай, побеждай - мозг устным счетом прокачай!</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <p class="lead mb-4">... Здесь будет игра ...</p>
+        <hr />
         <RouterLink class="btn btn-secondary btn-lg" to="/">Назад</RouterLink>
       </div>
     </div>
