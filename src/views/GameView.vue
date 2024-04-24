@@ -4,6 +4,6 @@ import LogoPage from '../components/LogoPage.vue'
 </script>
 
 <template>
-  <LogoPage />
+  <LogoPage logoimg="thinks.jpg" />
   <GamePage />
 </template>

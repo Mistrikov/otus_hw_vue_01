@@ -5,7 +5,7 @@ import LogoPage from '../components/LogoPage.vue'
 
 <template>
   <main>
-    <LogoPage />
+    <LogoPage logoimg="logo.jpg" />
     <SettingsForm />
   </main>
 </template>

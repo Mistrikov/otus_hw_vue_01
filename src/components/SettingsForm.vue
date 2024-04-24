@@ -1,19 +1,17 @@
 <script setup>
 import PeopleCircle from '../components/icons/PeopleCircle.vue'
-//import SettingsButton from '../components/SettingsButton.vue'
 import { onUpdated } from 'vue'
 import { useStore } from 'vuex';
 
 const Store = useStore()
-const label = ['Сложение', 'Вычетание', 'Умножение', 'Деление']
 
 onUpdated(() => {
-    //console.log(Store.state.actions)
-    Store.commit('setStartGame', (Store.state.actions.indexOf(true) > -1) && (Store.state.playername.length > 3))
+    Store.commit('setActionsSelect')
+    Store.commit('setCanStartGame')
 })
 
-const playernameEdit = (element) => {
-    Store.commit('setPlayername', element.target.value)
+const playernameEdit = (el) => {
+    Store.commit('setPlayername', el.target.value)
 }
 
 const actionsClick = (ind) => {
@@ -51,10 +49,10 @@ const actionsClick = (ind) => {
                 </div>
                 <div class="col-4 d-grid gap-2">
                     <h3>Тренировать:</h3>
-                    <div class="d-grid gap-2" v-for="(i, index) in label " :key="index">
-                        <input type="checkbox" class="btn-check" :id="index" :checked="Store.state.actions[index]"
-                            autocomplete="off" @click="actionsClick(index)">
-                        <label class="btn btn-outline-primary" :for="index">{{ i }}</label>
+                    <div class="d-grid gap-2" v-for="(i, index) in Store.state.actions" :key="index">
+                        <input type="checkbox" class="btn-check" :id="index" :checked="i.select" autocomplete="off"
+                            @click="actionsClick(index)">
+                        <label class="btn btn-outline-primary" :for="index">{{ i.caption }}</label>
                     </div>
                 </div>
             </div>
